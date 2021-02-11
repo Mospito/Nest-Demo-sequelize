@@ -74,3 +74,4 @@ Nest is [MIT licensed](LICENSE).
 "# Nest-Demo-sequelize" 
 "# Nest-Sequelize-Demo" 
 "# Nest-Sequelize-Demo" 
+"# Nest-Sequelize-Demo" 
