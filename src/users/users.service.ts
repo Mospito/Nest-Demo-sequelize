@@ -12,8 +12,14 @@ export class UsersService {
 
   create(createUserDto: CreateUserDto): Promise<User> {
     const user = new User();
+    user.DoctorId = createUserDto.DoctorId;
     user.firstName = createUserDto.firstName;
     user.lastName = createUserDto.lastName;
+    user.Email = createUserDto.Email;
+    user.Telephone = createUserDto.Telephone;
+    user.Position = createUserDto.Position;
+    user.Username = createUserDto.Username;
+    user.Password = createUserDto.Password;
 
     return user.save();
   }

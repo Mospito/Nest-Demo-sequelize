@@ -1,4 +1,10 @@
 export class CreateUserDto {
-    firstName: string;
-    lastName: string;
-  }
+  DoctorId: string;
+  firstName: string;
+  lastName: string;
+  Email: string;
+  Telephone: string;
+  Position: string;
+  Username: string;
+  Password: string;
+}
