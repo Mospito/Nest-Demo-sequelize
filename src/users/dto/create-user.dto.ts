@@ -1,5 +1,6 @@
+/* eslint-disable prettier/prettier */
 export class CreateUserDto {
-  DoctorId: string;
+  DoctorId: number;
   firstName: string;
   lastName: string;
   Email: string;
@@ -7,4 +8,5 @@ export class CreateUserDto {
   Position: string;
   Username: string;
   Password: string;
+ 
 }

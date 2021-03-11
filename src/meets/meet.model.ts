@@ -1,10 +1,12 @@
-import { Column, Model, Table } from 'sequelize-typescript';
-
+/* eslint-disable prettier/prettier */
+import { AllowNull,  BelongsTo,  Column,  ForeignKey,  Model, Table, AutoIncrement } from 'sequelize-typescript';
+import { User } from '../users/user.model';
 @Table
 export class Meet extends Model<Meet> {
 
+  // @AutoIncrement
   // @Column
-  // DoctorId: string;
+  // MeetId: number;
 
   @Column
   ClinicNumber: string;
@@ -24,6 +26,16 @@ export class Meet extends Model<Meet> {
   @Column
   TimeEnd: Date;
 
+
+
   @Column({ defaultValue: true })
   isActive: boolean;
+
+
+  @ForeignKey( ()=> User)
+  @Column
+  DoctorId: number;
+
+  @BelongsTo( ()=> Meet, 'DoctorId')
+  meet:Meet;
 }

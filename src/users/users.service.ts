@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/sequelize';
 import { CreateUserDto } from './dto/create-user.dto';
@@ -12,7 +13,7 @@ export class UsersService {
 
   create(createUserDto: CreateUserDto): Promise<User> {
     const user = new User();
-    user.DoctorId = createUserDto.DoctorId;
+    // user.DoctorId = createUserDto.DoctorId;
     user.firstName = createUserDto.firstName;
     user.lastName = createUserDto.lastName;
     user.Email = createUserDto.Email;
@@ -20,6 +21,10 @@ export class UsersService {
     user.Position = createUserDto.Position;
     user.Username = createUserDto.Username;
     user.Password = createUserDto.Password;
+    
+    
+
+    
 
     return user.save();
   }
@@ -38,6 +43,11 @@ export class UsersService {
 
   async remove(id: string): Promise<void> {
     const user = await this.findOne(id);
+    this.getDelete(id);
     await user.destroy();
+  }
+
+  getDelete(id): string {
+    return 'Delete success!! ' + id;
   }
 }

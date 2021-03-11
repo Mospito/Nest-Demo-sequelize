@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { Body, Controller, Delete, Get, Param, Post } from '@nestjs/common';
 import { CreateMeetDto } from './dto/create-meet.dto';
 import { Meet } from './meet.model';
@@ -7,7 +8,7 @@ import { MeetsService } from './meets.service';
 export class MeetsController {
   constructor(private readonly meetsService: MeetsService) {}
 
-  @Post()
+  @Post('')
   create(@Body() createMeetDto: CreateMeetDto): Promise<Meet> {
     return this.meetsService.create(createMeetDto);
   }

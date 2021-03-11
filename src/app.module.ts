@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { Module } from '@nestjs/common';
 import { SequelizeModule } from '@nestjs/sequelize';
 import { UsersModule } from './users/users.module';
@@ -15,6 +16,7 @@ import { MeetsModule } from './meets/meets.module';
       autoLoadModels: true,
       synchronize: true,
     }),
+    // eslint-disable-next-line prettier/prettier
     UsersModule,MeetsModule,
   ],
 })

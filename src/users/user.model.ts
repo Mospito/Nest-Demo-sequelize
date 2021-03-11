@@ -1,9 +1,16 @@
-import { Column, Model, Table } from 'sequelize-typescript';
+/* eslint-disable prettier/prettier */
+import { AllowNull, AutoIncrement, Column,  BelongsTo,  ForeignKey, HasMany, Model, PrimaryKey, Table } from 'sequelize-typescript';
+import { Meet } from '../meets/meet.model'
 
-@Table
+@Table({ timestamps: false, paranoid: false })
 export class User extends Model<User> {
-  @Column
-  DoctorId: string;
+
+
+  
+  // @PrimaryKey
+  // @AutoIncrement
+  // @Column
+  // DoctorId: number;
 
   @Column
   firstName: string;
@@ -26,6 +33,12 @@ export class User extends Model<User> {
   @Column
   Password: string;
 
+ 
+
   @Column({ defaultValue: true })
   isActive: boolean;
+
+ 
+  @HasMany( ()=> Meet)
+  meets : Meet[];
 }

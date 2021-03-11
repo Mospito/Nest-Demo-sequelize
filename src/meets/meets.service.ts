@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/sequelize';
 import { CreateMeetDto } from './dto/create-meet.dto';
@@ -12,12 +13,14 @@ export class MeetsService {
 
   create(createMeetDto: CreateMeetDto): Promise<Meet> {
     const meet = new Meet();
+
     meet.ClinicNumber = createMeetDto.ClinicNumber;
     meet.Detail = createMeetDto.Detail;
     meet.Topic = createMeetDto.Topic;
     meet.Date = createMeetDto.Date;
     meet.TimeStart = createMeetDto.TimeStart;
     meet.TimeEnd = createMeetDto.TimeEnd;
+    meet.DoctorId = createMeetDto.DoctorId;
     
 
 
