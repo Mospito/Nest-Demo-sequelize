@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import { AllowNull, AutoIncrement, Column,  BelongsTo,  ForeignKey, HasMany, Model, PrimaryKey, Table } from 'sequelize-typescript';
+import {  Column,   HasMany, Model,  Table } from 'sequelize-typescript';
 import { Meet } from '../meets/meet.model'
 
 @Table({ timestamps: false, paranoid: false })

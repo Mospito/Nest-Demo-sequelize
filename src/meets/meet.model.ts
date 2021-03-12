@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import { AllowNull,  BelongsTo,  Column,  ForeignKey,  Model, Table, AutoIncrement } from 'sequelize-typescript';
+import {   BelongsTo,  Column,  ForeignKey,  Model, Table,  } from 'sequelize-typescript';
 import { User } from '../users/user.model';
 @Table
 export class Meet extends Model<Meet> {

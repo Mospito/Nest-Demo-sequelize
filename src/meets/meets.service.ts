@@ -31,6 +31,8 @@ export class MeetsService {
     return this.meetModel.findAll();
   }
 
+  
+
   findOne(id: string): Promise<Meet> {
     return this.meetModel.findOne({
       where: {

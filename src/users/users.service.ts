@@ -50,4 +50,9 @@ export class UsersService {
   getDelete(id): string {
     return 'Delete success!! ' + id;
   }
+
+//  User.findOne({ include: [Meet] }).then((user) => {
+//    user.meets.forEach((meets) => console.log(`Meets ${meets.ClinicNumber}`))
+//  })
+ 
 }
