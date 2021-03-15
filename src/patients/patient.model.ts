@@ -1,8 +1,9 @@
 /* eslint-disable prettier/prettier */
 
-import { Model } from 'sequelize';
-import { Column, Table } from 'sequelize-typescript';
+import { Model } from 'sequelize-typescript';
+import { Column, Table, HasMany } from 'sequelize-typescript';
 import { Col } from 'sequelize/types/lib/utils';
+import { Meet } from '../meets/meet.model'
 
 @Table( {timestamps: false, paranoid: false})
 export class Patient extends Model<Patient>{
@@ -46,6 +47,11 @@ export class Patient extends Model<Patient>{
 
     @Column
     NumOfTreatments: number;
+
+    @HasMany( ()=> Meet)
+    meets : Meet[];
+
+
     
     
 }

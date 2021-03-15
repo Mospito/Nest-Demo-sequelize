@@ -3,7 +3,7 @@
 export class CreateMeetDto {
     // DoctorId: string; //Fk form table Users
     MeetId: number;
-    ClinicNumber: string;
+    // ClinicNumber: string;
     Detail: string;
     Topic: string;
     Date: Date;

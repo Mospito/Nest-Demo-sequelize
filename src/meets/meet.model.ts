@@ -1,6 +1,7 @@
 /* eslint-disable prettier/prettier */
 import {   BelongsTo,  Column,  ForeignKey,  Model, Table,  } from 'sequelize-typescript';
 import { User } from '../users/user.model';
+import { Patient } from '../patients/patient.model';
 @Table
 export class Meet extends Model<Meet> {
 
@@ -8,8 +9,7 @@ export class Meet extends Model<Meet> {
   // @Column
   // MeetId: number;
 
-  @Column
-  ClinicNumber: string;
+
 
   @Column
   Detail: string;
@@ -38,4 +38,14 @@ export class Meet extends Model<Meet> {
 
   @BelongsTo( ()=> Meet, 'DoctorId')
   meet:Meet;
+
+
+  @ForeignKey( ()=> Patient)
+  @Column
+  ClinicNumber: number;
+
+  @BelongsTo( ()=> Meet, 'ClinicNumber')
+  patient:Patient;
+
+
 }

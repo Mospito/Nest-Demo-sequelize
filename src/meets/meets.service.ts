@@ -14,7 +14,7 @@ export class MeetsService {
   create(createMeetDto: CreateMeetDto): Promise<Meet> {
     const meet = new Meet();
 
-    meet.ClinicNumber = createMeetDto.ClinicNumber;
+    // meet.ClinicNumber = createMeetDto.ClinicNumber;
     meet.Detail = createMeetDto.Detail;
     meet.Topic = createMeetDto.Topic;
     meet.Date = createMeetDto.Date;
