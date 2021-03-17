@@ -1,6 +1,7 @@
 /* eslint-disable prettier/prettier */
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/sequelize';
+import { Meet } from 'src/meets/meet.model';
 import { CreateUserDto } from './dto/create-user.dto';
 import { User } from './user.model';
 
@@ -30,11 +31,12 @@ export class UsersService {
   }
 
   async findAll(): Promise<User[]> {
-    return this.userModel.findAll();
+    return this.userModel.findAll({include: [Meet]});
   }
 
   findOne(id: string): Promise<User> {
     return this.userModel.findOne({
+      include: [Meet],
       where: {
         id,
       },
