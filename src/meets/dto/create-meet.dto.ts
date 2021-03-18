@@ -10,5 +10,6 @@ export class CreateMeetDto {
     TimeStart: Date;
     TimeEnd: Date;
     DoctorId: number;
+    PatientId: number;
     
   }

@@ -3,7 +3,7 @@ import {  Column,   HasMany, Model,  Table } from 'sequelize-typescript';
 import { Meet } from '../meets/meet.model'
 
 @Table({ timestamps: false, paranoid: false })
-export class User extends Model<User> {
+export class User extends Model {
 
 
   

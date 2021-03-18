@@ -1,9 +1,9 @@
 /* eslint-disable prettier/prettier */
-import {   BelongsTo,  Column,  ForeignKey,  Model, Table,  } from 'sequelize-typescript';
+import { BelongsTo, Column, ForeignKey, Model, Table, } from 'sequelize-typescript';
 import { User } from '../users/user.model';
 import { Patient } from '../patients/patient.model';
 @Table
-export class Meet extends Model<Meet> {
+export class Meet extends Model{
 
   // @AutoIncrement
   // @Column
@@ -31,21 +31,26 @@ export class Meet extends Model<Meet> {
   @Column({ defaultValue: true })
   isActive: boolean;
 
+  @ForeignKey(() => Patient)
+  @Column
+  PatientId: number;
 
-  @ForeignKey( ()=> User)
+  @BelongsTo(() => Patient, { targetKey: 'id', foreignKey: 'PatientId', as: 'bar' })
+  patient: Patient;
+
+
+  @ForeignKey(() => User)
   @Column
   DoctorId: number;
 
-  @BelongsTo( ()=> Meet, 'DoctorId')
-  meet:Meet;
+  @BelongsTo(() => User, { targetKey: 'id', foreignKey: 'DoctorId', as: 'foo' })
+  meet: Meet;
+
+  // @BelongsTo( ()=> Meet, 'DoctorId')
+  // meet:Meet;
 
 
-  @ForeignKey( ()=> Patient)
-  @Column
-  ClinicNumber: number;
-
-  @BelongsTo( ()=> Meet, 'ClinicNumber')
-  patient:Patient;
+  
 
 
 }

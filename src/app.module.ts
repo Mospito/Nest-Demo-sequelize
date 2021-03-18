@@ -17,7 +17,7 @@ import { PatientsModule } from './patients/patients.module';
       synchronize: true,
     }),
     // eslint-disable-next-line prettier/prettier
-    UsersModule,MeetsModule,PatientsModule,
+    MeetsModule,  PatientsModule, UsersModule,
   ],
 })
-export class AppModule {}
+export class AppModule { }

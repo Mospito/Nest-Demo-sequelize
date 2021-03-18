@@ -6,7 +6,7 @@ import { Col } from 'sequelize/types/lib/utils';
 import { Meet } from '../meets/meet.model'
 
 @Table( {timestamps: false, paranoid: false})
-export class Patient extends Model<Patient>{
+export class Patient extends Model{
 
 
     @Column

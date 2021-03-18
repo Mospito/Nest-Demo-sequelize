@@ -3,13 +3,13 @@ import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/sequelize';
 import { CreateMeetDto } from './dto/create-meet.dto';
 import { Meet } from './meet.model';
-
+import { User } from '../users/user.model'
 @Injectable()
 export class MeetsService {
   constructor(
     @InjectModel(Meet)
     private readonly meetModel: typeof Meet,
-  ) {}
+  ) { }
 
   create(createMeetDto: CreateMeetDto): Promise<Meet> {
     const meet = new Meet();
@@ -21,17 +21,19 @@ export class MeetsService {
     meet.TimeStart = createMeetDto.TimeStart;
     meet.TimeEnd = createMeetDto.TimeEnd;
     meet.DoctorId = createMeetDto.DoctorId;
-    
+    meet.PatientId = createMeetDto.PatientId;
 
+    console.log(meet);
+    
 
     return meet.save();
   }
 
   async findAll(): Promise<Meet[]> {
-    return this.meetModel.findAll();
+    return this.meetModel.findAll({ include: [User] });
   }
 
-  
+
 
   findOne(id: string): Promise<Meet> {
     return this.meetModel.findOne({
