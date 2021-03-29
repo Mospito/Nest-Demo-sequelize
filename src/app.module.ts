@@ -4,6 +4,7 @@ import { SequelizeModule } from '@nestjs/sequelize';
 import { UsersModule } from './users/users.module';
 import { MeetsModule } from './meets/meets.module';
 import { PatientsModule } from './patients/patients.module';
+import { CostsModule } from './costs/costs.module';
 @Module({
   imports: [
     SequelizeModule.forRoot({
@@ -17,7 +18,7 @@ import { PatientsModule } from './patients/patients.module';
       synchronize: true,
     }),
     // eslint-disable-next-line prettier/prettier
-    MeetsModule,  PatientsModule, UsersModule,
+    MeetsModule,  PatientsModule, UsersModule, CostsModule,
   ],
 })
 export class AppModule { }
