@@ -4,6 +4,7 @@ import { InjectModel } from '@nestjs/sequelize';
 import { Meet } from 'src/meets/meet.model';
 import { CreateUserDto } from './dto/create-user.dto';
 import { User } from './user.model';
+import { Userinterface } from './interfaces/users.interfaces'
 
 @Injectable()
 export class UsersService {
@@ -11,6 +12,7 @@ export class UsersService {
     @InjectModel(User)
     private readonly userModel: typeof User,
   ) {}
+  private readonly users: Userinterface[] = [];
 
   create(createUserDto: CreateUserDto): Promise<User> {
     const user = new User();
@@ -23,10 +25,6 @@ export class UsersService {
     user.Username = createUserDto.Username;
     user.Password = createUserDto.Password;
     
-    
-
-    
-
     return user.save();
   }
 

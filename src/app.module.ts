@@ -9,10 +9,10 @@ import { CostsModule } from './costs/costs.module';
   imports: [
     SequelizeModule.forRoot({
       dialect: 'mysql',
-      host: 'localhost',
-      port: 3306,
+      host: '178.128.90.50',
+      port: 6603,
       username: 'root',
-      password: 'root',
+      password: 'helloworld',
       database: 'Demo',
       autoLoadModels: true,
       synchronize: true,
